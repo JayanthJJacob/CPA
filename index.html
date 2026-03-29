@@ -1,227 +1,510 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CPA — Scientific Research Proposal</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-    
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Research Proposals — Idea Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --parchment: #f5f0e8;
+  --parchment-dark: #ede7d8;
+  --ink: #1a1510;
+  --ink-mid: #3d3528;
+  --ink-faded: #6b5f4e;
+  --ink-ghost: #a09482;
+  --caplin: #1a4a6b;
+  --caplin-soft: rgba(26,74,107,0.06);
+  --gold: #c8860a;
+  --gold-soft: rgba(200,134,10,0.07);
+  --green: #2a5c2a;
+  --red: #8b2020;
+  --border: #c4b49a;
+  --border-light: #ddd0b8;
+}
 
-    <style>
-        :root {  
-            --parchment: #f5f0e8;  
-            --parchment-dark: #ede7d8;  
-            --ink: #1a1510;  
-            --ink-mid: #3d3528;  
-            --ink-faded: #6b5f4e;  
-            --ink-ghost: #a09482;  
-            --caplin: #1a4a6b; /* You can change this to a dark red or green for your proposal */
-            --caplin-soft: rgba(26,74,107,0.06);  
-            --gold: #c8860a;  
-            --gold-soft: rgba(200,134,10,0.07);  
-            --green: #2a5c2a;  
-            --red: #8b2020;  
-            --border: #c4b49a;  
-            --border-light: #ddd0b8;
-        }
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        
-        body {  
-            background: var(--parchment);  
-            color: var(--ink);  
-            font-family: 'Source Serif 4', Georgia, serif;  
-            font-weight: 300;  
-            -webkit-font-smoothing: antialiased;  
-            line-height: 1.7;
-        }
+body {
+  background: var(--parchment);
+  color: var(--ink);
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.7;
+}
 
-        .page {  max-width: 860px;  margin: 0 auto;  padding: 56px 40px 100px; }
+.page {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 56px 40px 100px;
+}
 
-        /* === MASTHEAD === */
-        .masthead {  border-top: 2px solid var(--ink);  border-bottom: 1px solid var(--border);  padding: 14px 0 12px;  display: flex;  justify-content: space-between;  align-items: baseline;  margin-bottom: 72px;}
-        .masthead-pub {  font-family: 'Playfair Display', serif;  font-size: 13px;  letter-spacing: 0.12em;  text-transform: uppercase;  color: var(--ink-faded);}
-        .masthead-meta {  font-family: 'DM Mono', monospace;  font-size: 10.5px;  color: var(--ink-ghost);}
-        
-        /* === HERO === */
-        .hero {  margin-bottom: 56px;  padding-bottom: 48px;  border-bottom: 1px solid var(--border);}
-        .hero-kicker {  font-family: 'DM Mono', monospace;  font-size: 10px;  letter-spacing: 0.2em;  text-transform: uppercase;  color: var(--caplin);  margin-bottom: 18px;}
-        .hero-title {  font-family: 'Playfair Display', serif;  font-size: clamp(38px, 5.5vw, 64px);  font-weight: 900;  line-height: 0.95;  color: var(--ink);  margin-bottom: 10px;  letter-spacing: -0.02em;}
-        .hero-ticker {  font-family: 'DM Mono', monospace;  font-size: 11px;  color: var(--ink-ghost);  letter-spacing: 0.13em;  margin-bottom: 28px;}
-        .hero-deck {  font-family: 'Playfair Display', serif;  font-size: clamp(14px, 1.7vw, 17px);  font-weight: 400;  font-style: italic;  color: var(--ink-faded);  line-height: 1.6;  max-width: 640px;  border-left: 2px solid var(--border);  padding-left: 18px;}
+/* === MASTHEAD === */
+.masthead {
+  border-top: 2px solid var(--ink);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 0 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 72px;
+}
+.masthead-pub {
+  font-family: 'Playfair Display', serif;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-faded);
+}
+.masthead-meta {
+  font-family: 'DM Mono', monospace;
+  font-size: 10.5px;
+  color: var(--ink-ghost);
+}
 
-        /* === STATS ROW === */
-        .stats-row {  display: grid;  grid-template-columns: repeat(6, 1fr);  gap: 1px;  background: var(--border-light);  border: 1px solid var(--border-light);  margin-bottom: 56px;}
-        .stat {  background: var(--parchment);  padding: 16px 14px;}
-        .stat-label {  font-family: 'DM Mono', monospace;  font-size: 7.5px;  letter-spacing: 0.1em;  text-transform: uppercase;  color: var(--ink-ghost);  margin-bottom: 6px;}
-        .stat-val {  font-family: 'Playfair Display', serif;  font-size: 19px;  font-weight: 700;  line-height: 1;  margin-bottom: 3px;}
-        .stat-val.gold { color: var(--gold); }
-        .stat-val.blue { color: var(--caplin); }
-        .stat-sub {  font-family: 'DM Mono', monospace;  font-size: 8.5px;  color: var(--ink-ghost);}
+/* === HERO === */
+.hero {
+  margin-bottom: 56px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid var(--border);
+}
+.hero-kicker {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--caplin);
+  margin-bottom: 18px;
+}
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(38px, 5.5vw, 64px);
+  font-weight: 900;
+  line-height: 0.95;
+  color: var(--ink);
+  margin-bottom: 10px;
+  letter-spacing: -0.02em;
+}
+.hero-sub {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--ink-ghost);
+  letter-spacing: 0.13em;
+  margin-bottom: 28px;
+}
+.hero-deck {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(14px, 1.7vw, 17px);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--ink-faded);
+  line-height: 1.6;
+  max-width: 640px;
+  border-left: 2px solid var(--border);
+  padding-left: 18px;
+}
 
-        /* === THESIS BAND === */
-        .thesis-band {  background: var(--ink);  padding: 24px 28px;  margin-bottom: 64px;}
-        .thesis-label {  font-family: 'DM Mono', monospace;  font-size: 9px;  letter-spacing: 0.16em;  text-transform: uppercase;  color: var(--gold);  margin-bottom: 10px;}
-        .thesis-text {  font-family: 'Playfair Display', serif;  font-size: clamp(14px, 1.6vw, 17px);  font-weight: 400;  font-style: italic;  color: rgba(245,240,232,0.82);  line-height: 1.6;}
+/* === STATS ROW === */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1px;
+  background: var(--border-light);
+  border: 1px solid var(--border-light);
+  margin-bottom: 56px;
+}
+.stat {
+  background: var(--parchment);
+  padding: 16px 14px;
+}
+.stat-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 7.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-ghost);
+  margin-bottom: 6px;
+}
+.stat-val {
+  font-family: 'Playfair Display', serif;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 3px;
+}
+.stat-val.gold { color: var(--gold); }
+.stat-val.blue { color: var(--caplin); }
+.stat-sub {
+  font-family: 'DM Mono', monospace;
+  font-size: 8.5px;
+  color: var(--ink-ghost);
+}
 
-        /* === SECTION HEADER === */
-        .section-rule {  display: flex;  align-items: baseline;  gap: 12px;  margin-bottom: 28px;  padding-bottom: 10px;  border-bottom: 1px solid var(--border);}
-        .s-label {  font-family: 'DM Mono', monospace;  font-size: 10px;  color: var(--caplin);  letter-spacing: 0.08em;}
-        .s-title {  font-family: 'Playfair Display', serif;  font-size: 20px;  font-weight: 700;}
-        .s-aside {  font-family: 'DM Mono', monospace;  font-size: 9px;  color: var(--ink-ghost);  margin-left: auto;}
+/* === THESIS BAND === */
+.thesis-band {
+  background: var(--ink);
+  padding: 24px 28px;
+  margin-bottom: 64px;
+}
+.thesis-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+.thesis-text {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(14px, 1.6vw, 17px);
+  font-weight: 400;
+  font-style: italic;
+  color: rgba(245,240,232,0.82);
+  line-height: 1.6;
+}
 
-        /* === REPORTS LIST === */
-        .reports-list {  margin-bottom: 64px;}
-        .report-entry {  display: grid;  grid-template-columns: 44px 1fr auto;  gap: 0 20px;  align-items: baseline;  padding: 20px 12px;  margin-left: -12px;  margin-right: -12px;  border-bottom: 1px solid var(--border-light);  text-decoration: none;  color: var(--ink);  transition: background 0.15s;}
-        .report-entry:first-child {  border-top: 1px solid var(--border-light);}
-        .report-entry:hover {  background: var(--caplin-soft);}
-        .re-num {  font-family: 'DM Mono', monospace;  font-size: 12px;  color: var(--ink-ghost);}
-        .re-content {  display: flex;  flex-direction: column;  gap: 4px;}
-        .re-title {  font-family: 'Playfair Display', serif;  font-size: 16.5px;  font-weight: 700;  line-height: 1.25;}
-        .re-desc {  font-size: 13px;  font-weight: 300;  color: var(--ink-faded);  line-height: 1.55;}
-        .re-tag {  font-family: 'DM Mono', monospace;  font-size: 8px;  letter-spacing: 0.1em;  text-transform: uppercase;  color: var(--ink-ghost);  padding: 3px 8px;  border: 1px solid var(--border-light);  align-self: center;  white-space: nowrap;}
-        .re-tag.special {  color: var(--gold);  border-color: rgba(200,134,10,0.25);  background: var(--gold-soft);}
-        .re-tag.live {  color: var(--green);  border-color: rgba(42,92,42,0.2);  background: rgba(42,92,42,0.06);}
+/* === SECTION HEADER === */
+.section-rule {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 28px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+.s-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: var(--caplin);
+  letter-spacing: 0.08em;
+}
+.s-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 700;
+}
+.s-aside {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  color: var(--ink-ghost);
+  margin-left: auto;
+}
 
-        /* === METHODOLOGY NOTE === */
-        .method-note {  border-top: 1px solid var(--border);  padding-top: 28px;  margin-bottom: 64px;}
-        .method-label {  font-family: 'DM Mono', monospace;  font-size: 9px;  letter-spacing: 0.14em;  text-transform: uppercase;  color: var(--ink-ghost);  margin-bottom: 10px;}
-        .method-text {  font-size: 14px;  font-weight: 300;  color: var(--ink-faded);  line-height: 1.7;  max-width: 620px;}
+/* === PROPOSALS LIST === */
+.reports-list {
+  margin-bottom: 64px;
+}
+.report-entry {
+  display: grid;
+  grid-template-columns: 44px 1fr auto;
+  gap: 0 20px;
+  align-items: baseline;
+  padding: 20px 12px;
+  margin-left: -12px;
+  margin-right: -12px;
+  border-bottom: 1px solid var(--border-light);
+  text-decoration: none;
+  color: var(--ink);
+  transition: background 0.15s;
+  cursor: default;
+}
+.report-entry:first-child {
+  border-top: 1px solid var(--border-light);
+}
+.report-entry:hover {
+  background: var(--caplin-soft);
+}
+.re-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  color: var(--ink-ghost);
+}
+.re-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.re-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 16.5px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+.re-desc {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--ink-faded);
+  line-height: 1.55;
+}
+.re-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-ghost);
+  padding: 3px 8px;
+  border: 1px solid var(--border-light);
+  align-self: center;
+  white-space: nowrap;
+}
+.re-tag.special {
+  color: var(--gold);
+  border-color: rgba(200,134,10,0.25);
+  background: var(--gold-soft);
+}
+.re-tag.live {
+  color: var(--green);
+  border-color: rgba(42,92,42,0.2);
+  background: rgba(42,92,42,0.06);
+}
+.re-tag.draft {
+  color: var(--red);
+  border-color: rgba(139,32,32,0.2);
+  background: rgba(139,32,32,0.05);
+}
 
-        /* === FOOTER === */
-        .footer {  border-top: 2px solid var(--ink);  padding-top: 16px;  display: flex;  justify-content: space-between;  align-items: baseline;}
-        .footer-left {  font-family: 'DM Mono', monospace;  font-size: 9px;  color: var(--ink-ghost);}
-        .footer-right {  font-family: 'DM Mono', monospace;  font-size: 9px;  color: var(--ink-ghost);  font-style: italic;}
+/* === METHODOLOGY NOTE === */
+.method-note {
+  border-top: 1px solid var(--border);
+  padding-top: 28px;
+  margin-bottom: 64px;
+}
+.method-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-ghost);
+  margin-bottom: 10px;
+}
+.method-text {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--ink-faded);
+  line-height: 1.7;
+  max-width: 620px;
+}
 
-        /* === RESPONSIVE === */
-        @media (max-width: 700px) {  
-            .page { padding: 36px 20px 60px; }  
-            .stats-row { grid-template-columns: repeat(3, 1fr); }  
-            .report-entry { grid-template-columns: 36px 1fr; }  
-            .re-tag { display: none; }  
-            .masthead { flex-direction: column; gap: 4px; }
-        }
-    </style>
+/* === FOOTER === */
+.footer {
+  border-top: 2px solid var(--ink);
+  padding-top: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.footer-left {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  color: var(--ink-ghost);
+}
+.footer-right {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  color: var(--ink-ghost);
+  font-style: italic;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 700px) {
+  .page { padding: 36px 20px 60px; }
+  .stats-row { grid-template-columns: repeat(3, 1fr); }
+  .report-entry { grid-template-columns: 36px 1fr; }
+  .re-tag { display: none; }
+  .masthead { flex-direction: column; gap: 4px; }
+}
+
+@media print {
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+  .report-entry { page-break-inside: avoid; break-inside: avoid; }
+  .stats-row, .thesis-band { page-break-inside: avoid; break-inside: avoid; }
+}
+</style>
 </head>
 <body>
-
 <div class="page">
-  <div class="masthead">    
-      <span class="masthead-pub">CPA Research Frame</span>    
-      <span class="masthead-meta">SYS: PROPOSAL · V1.0 · 2026</span>  
+
+  <!-- MASTHEAD -->
+  <div class="masthead">
+    <span class="masthead-pub">Research Proposal Portfolio</span>
+    <span class="masthead-meta">8 Proposals · March 2026 · Working Ideas</span>
   </div>
 
-  <div class="hero">    
-      <div class="hero-kicker">Scientific Deep Dive · Complete Methodology</div>    
-      <div class="hero-title">CPA Proposal</div>    
-      <div class="hero-ticker">VAR: A/B · CONFIDENCE: 95% · p-VALUE < 0.05</div>    
-      <div class="hero-deck">"A systematic framework for investigating bottleneck effects in target systems. This proposal outlines the transition from theoretical models to empirical validation."</div>  
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-kicker">Idea Repository · Research in Progress</div>
+    <div class="hero-title">Proposals</div>
+    <div class="hero-sub">8 Research Proposals · Across 4 Domains · 3 Active · 2 Submitted</div>
+    <div class="hero-deck">"Research begins not with answers but with the courage to ask questions that others have overlooked — to find the gap in the literature and stake a claim that something important has been left unsaid."</div>
   </div>
 
-  <div class="stats-row">    
-      <div class="stat">      
-          <div class="stat-label">Duration</div>      
-          <div class="stat-val gold">24 Mo</div>      
-          <div class="stat-sub">Phase I & II</div>    
-      </div>    
-      <div class="stat">      
-          <div class="stat-label">Dataset Size</div>      
-          <div class="stat-val">1.2M</div>      
-          <div class="stat-sub">Parameters</div>    
-      </div>    
-      <div class="stat">      
-          <div class="stat-label">Variance ($R^2$)</div>      
-          <div class="stat-val blue">0.89</div>      
-          <div class="stat-sub">Target Accuracy</div>    
-      </div>    
-      <div class="stat">      
-          <div class="stat-label">Variables</div>      
-          <div class="stat-val">5</div>      
-          <div class="stat-sub">Independent</div>    
-      </div>    
-      <div class="stat">      
-          <div class="stat-label">Funding Req.</div>      
-          <div class="stat-val gold">$45k</div>      
-          <div class="stat-sub">Capital Allocation</div>    
-      </div>    
-      <div class="stat">      
-          <div class="stat-label">Feasibility</div>      
-          <div class="stat-val">High</div>      
-          <div class="stat-sub">Composite Score</div>    
-      </div>  
+  <!-- STATS -->
+  <div class="stats-row">
+    <div class="stat">
+      <div class="stat-label">Total Proposals</div>
+      <div class="stat-val gold">8</div>
+      <div class="stat-sub">As of Mar 2026</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Submitted</div>
+      <div class="stat-val">2</div>
+      <div class="stat-sub">Under Review</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Active Drafts</div>
+      <div class="stat-val blue">3</div>
+      <div class="stat-sub">In Progress</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Domains</div>
+      <div class="stat-val">4</div>
+      <div class="stat-sub">Interdisciplinary</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Est. Duration</div>
+      <div class="stat-val gold">2–4 yrs</div>
+      <div class="stat-sub">Per proposal</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Methodology</div>
+      <div class="stat-val">Mixed</div>
+      <div class="stat-sub">Quant + Qual</div>
+    </div>
   </div>
 
-  <div class="thesis-band">    
-      <div class="thesis-label">Core Hypothesis ($H_1$)</div>    
-      <div class="thesis-text">
-          The system exhibits nonlinear compounding when subjected to specific stress factors. The objective is to isolate variable $X$ and measure the catalytic impact on the standard output rate.
-      </div>  
+  <!-- THESIS -->
+  <div class="thesis-band">
+    <div class="thesis-label">Research Orientation</div>
+    <div class="thesis-text">This portfolio sits at the intersection of systems thinking and empirical rigour — asking not just what is happening, but why structures persist, who benefits from the gap, and what intervention would most efficiently shift the equilibrium. Every proposal here begins where the consensus ends.</div>
   </div>
 
-  <div class="section-rule">    
-      <span class="s-label">—</span>    
-      <span class="s-title">Proposal Architecture</span>    
-      <span class="s-aside">5 Sections · Live Draft</span>  
+  <!-- DOMAIN 1 -->
+  <div class="section-rule">
+    <span class="s-label">—</span>
+    <span class="s-title">Health & Epidemiology</span>
+    <span class="s-aside">3 Proposals</span>
   </div>
 
   <div class="reports-list">
-    <a href="#" class="report-entry">      
-        <span class="re-num">01</span>      
-        <div class="re-content">        
-            <span class="re-title">Abstract & Executive Summary</span>        
-            <span class="re-desc">The high-level overview of the anomaly being investigated, the primary literature gap, and the expected outcomes of the study.</span>      
-        </div>      
-        <span class="re-tag">Foundation</span>    
-    </a>
-    
-    <a href="#" class="report-entry">      
-        <span class="re-num">02</span>      
-        <div class="re-content">        
-            <span class="re-title">Literature Review & Existing Models</span>        
-            <span class="re-desc">Forensic analysis of previous attempts to solve the bottleneck. Where standard methodologies failed and why a new approach is required.</span>      
-        </div>      
-        <span class="re-tag">Context</span>    
-    </a>
 
-    <a href="#" class="report-entry">      
-        <span class="re-num">03</span>      
-        <div class="re-content">        
-            <span class="re-title">Proposed Methodology</span>        
-            <span class="re-desc">Step-by-step execution path. Includes mathematical modeling, primary data scraping techniques, and stress-testing parameters.</span>      
-        </div>      
-        <span class="re-tag special">Core Model</span>    
-    </a>
+    <div class="report-entry">
+      <span class="re-num">01</span>
+      <div class="re-content">
+        <span class="re-title">The Invisible Burden — Mental Health Access in Rural South Asia</span>
+        <span class="re-desc">Why do treatment-seeking rates remain below 15% in high-prevalence rural districts despite a decade of national policy expansion? A mixed-methods study mapping structural, cultural, and supply-side barriers at the last mile.</span>
+      </div>
+      <span class="re-tag live">Active</span>
+    </div>
 
-    <a href="#" class="report-entry">      
-        <span class="re-num">04</span>      
-        <div class="re-content">        
-            <span class="re-title">Risk Assessment & Limitations</span>        
-            <span class="re-desc">A forensic threat assessment of the experimental design. What happens if the data is skewed, and how we mitigate false positives.</span>      
-        </div>      
-        <span class="re-tag">Risk</span>    
-    </a>
+    <div class="report-entry">
+      <span class="re-num">02</span>
+      <div class="re-content">
+        <span class="re-title">Antimicrobial Resistance as a Commons Problem — A Game-Theoretic Model</span>
+        <span class="re-desc">Framing AMR as a tragedy of the commons and modelling incentive structures across prescribers, patients, and pharmaceutical producers. Proposes a tiered stewardship mechanism with empirical calibration from district-level data.</span>
+      </div>
+      <span class="re-tag special">Submitted</span>
+    </div>
 
-    <a href="#" class="report-entry">      
-        <span class="re-num">05</span>      
-        <div class="re-content">        
-            <span class="re-title">Budget & Timeline</span>        
-            <span class="re-desc">Granular breakdown of capital allocation across Phase I and Phase II, mapped against specific monthly milestones.</span>      
-        </div>      
-        <span class="re-tag live">Logistics</span>    
-    </a>
+    <div class="report-entry">
+      <span class="re-num">03</span>
+      <div class="re-content">
+        <span class="re-title">Nutritional Transition & Non-Communicable Disease — Cohort Study Design</span>
+        <span class="re-desc">Prospective design for a 10-year cohort tracking dietary shift, metabolic markers, and NCD incidence across three income strata in peri-urban Kerala. Baseline instrument and sampling frame developed.</span>
+      </div>
+      <span class="re-tag draft">Draft</span>
+    </div>
+
   </div>
 
-  <div class="method-note">    
-      <div class="method-label">Framework Note</div>    
-      <div class="method-text">This proposal applies a rigorous scientific framework to evaluate structural constraints. Every phase is designed to test whether the variables can be isolated, replicated, and scaled mathematically.</div>  
+  <!-- DOMAIN 2 -->
+  <div class="section-rule">
+    <span class="s-label">—</span>
+    <span class="s-title">Climate & Environmental Systems</span>
+    <span class="s-aside">2 Proposals</span>
   </div>
 
-  <div class="footer">    
-      <span class="footer-left">Generated 2026 · Confidential Draft</span>    
-      <span class="footer-right">Prepared for Scientific Review.</span>  
+  <div class="reports-list">
+
+    <div class="report-entry">
+      <span class="re-num">04</span>
+      <div class="re-content">
+        <span class="re-title">Coastal Resilience Gaps — Adaptation Financing in Small Island States</span>
+        <span class="re-desc">Analysing the mismatch between projected adaptation costs and actual multilateral disbursements in SIDS. Tests whether fund-access complexity, not funding scarcity, is the binding constraint.</span>
+      </div>
+      <span class="re-tag live">Active</span>
+    </div>
+
+    <div class="report-entry">
+      <span class="re-num">05</span>
+      <div class="re-content">
+        <span class="re-title">Informal Sector Carbon Footprint — Measurement & Attribution Methods</span>
+        <span class="re-desc">Existing national inventories omit the informal economy, understating emissions in low-income countries by an estimated 18–34%. Proposes a satellite-data-augmented bottom-up methodology for attribution.</span>
+      </div>
+      <span class="re-tag draft">Draft</span>
+    </div>
+
+  </div>
+
+  <!-- DOMAIN 3 -->
+  <div class="section-rule">
+    <span class="s-label">—</span>
+    <span class="s-title">Political Economy & Institutions</span>
+    <span class="s-aside">2 Proposals</span>
+  </div>
+
+  <div class="reports-list">
+
+    <div class="report-entry">
+      <span class="re-num">06</span>
+      <div class="re-content">
+        <span class="re-title">Regulatory Capture in Emerging Market Utilities — A Comparative Study</span>
+        <span class="re-desc">Cross-national comparison of electricity regulator independence across 14 emerging markets, scored against a new Regulatory Autonomy Index. Tests whether capture is more strongly predicted by legislative design or by industry concentration.</span>
+      </div>
+      <span class="re-tag special">Submitted</span>
+    </div>
+
+    <div class="report-entry">
+      <span class="re-num">07</span>
+      <div class="re-content">
+        <span class="re-title">State Capacity & Welfare Delivery — The Last-Mile Bureaucracy Problem</span>
+        <span class="re-desc">Why do well-designed welfare schemes consistently underperform at delivery? An ethnographic and administrative data study of frontline bureaucrat discretion, incentive misalignment, and citizen trust in three Indian states.</span>
+      </div>
+      <span class="re-tag draft">Draft</span>
+    </div>
+
+  </div>
+
+  <!-- DOMAIN 4 -->
+  <div class="section-rule">
+    <span class="s-label">—</span>
+    <span class="s-title">Technology & Society</span>
+    <span class="s-aside">1 Proposal</span>
+  </div>
+
+  <div class="reports-list">
+
+    <div class="report-entry">
+      <span class="re-num">08</span>
+      <div class="re-content">
+        <span class="re-title">Algorithmic Hiring & Structural Inequality — Audit Framework for Low-Income Markets</span>
+        <span class="re-desc">As automated screening tools diffuse into low-income labour markets, this proposal develops an audit methodology for detecting disparate impact in hiring algorithms — grounded in field experiments across three sectors.</span>
+      </div>
+      <span class="re-tag live">Active</span>
+    </div>
+
+  </div>
+
+  <!-- METHODOLOGY NOTE -->
+  <div class="method-note">
+    <div class="method-label">Research Philosophy</div>
+    <div class="method-text">Every proposal in this portfolio is oriented around a well-defined gap — not a topic. The test applied at the ideation stage is simple: if the research were completed tomorrow, who would need to act differently, and why? Proposals that cannot answer this are returned to the drawing board, regardless of methodological elegance.</div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <span class="footer-left">March 2026 · 8 Proposals · 4 Domains</span>
+    <span class="footer-right">Ideas at various stages of development. Not for citation without permission.</span>
   </div>
 
 </div>
