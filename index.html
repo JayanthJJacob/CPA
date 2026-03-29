@@ -3,213 +3,227 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CPA - Scientific Research Proposal</title>
+    <title>CPA — Scientific Research Proposal</title>
     
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
     
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
     <style>
-        :root { 
-            --sidebar-width: 280px; 
-            --accent-color: #4f46e5;
+        :root {  
+            --parchment: #f5f0e8;  
+            --parchment-dark: #ede7d8;  
+            --ink: #1a1510;  
+            --ink-mid: #3d3528;  
+            --ink-faded: #6b5f4e;  
+            --ink-ghost: #a09482;  
+            --caplin: #1a4a6b; /* You can change this to a dark red or green for your proposal */
+            --caplin-soft: rgba(26,74,107,0.06);  
+            --gold: #c8860a;  
+            --gold-soft: rgba(200,134,10,0.07);  
+            --green: #2a5c2a;  
+            --red: #8b2020;  
+            --border: #c4b49a;  
+            --border-light: #ddd0b8;
         }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         
-        body { 
-            font-family: 'Inter', sans-serif; 
-            background: #fdfdfd; 
-            color: #1a202c;
-            line-height: 1.6;
+        body {  
+            background: var(--parchment);  
+            color: var(--ink);  
+            font-family: 'Source Serif 4', Georgia, serif;  
+            font-weight: 300;  
+            -webkit-font-smoothing: antialiased;  
+            line-height: 1.7;
         }
 
-        /* High-Contrast Headers like Caplin Deep Dive */
-        h1, h2, h3 { 
-            font-family: 'Inter', sans-serif; 
-            font-weight: 800; 
-            letter-spacing: -0.025em;
-        }
+        .page {  max-width: 860px;  margin: 0 auto;  padding: 56px 40px 100px; }
 
-        /* Monospace for Data & Metrics */
-        .mono-text, code, .data-cell {
-            font-family: 'JetBrains Mono', monospace;
-            font-weight: 500;
-        }
+        /* === MASTHEAD === */
+        .masthead {  border-top: 2px solid var(--ink);  border-bottom: 1px solid var(--border);  padding: 14px 0 12px;  display: flex;  justify-content: space-between;  align-items: baseline;  margin-bottom: 72px;}
+        .masthead-pub {  font-family: 'Playfair Display', serif;  font-size: 13px;  letter-spacing: 0.12em;  text-transform: uppercase;  color: var(--ink-faded);}
+        .masthead-meta {  font-family: 'DM Mono', monospace;  font-size: 10.5px;  color: var(--ink-ghost);}
+        
+        /* === HERO === */
+        .hero {  margin-bottom: 56px;  padding-bottom: 48px;  border-bottom: 1px solid var(--border);}
+        .hero-kicker {  font-family: 'DM Mono', monospace;  font-size: 10px;  letter-spacing: 0.2em;  text-transform: uppercase;  color: var(--caplin);  margin-bottom: 18px;}
+        .hero-title {  font-family: 'Playfair Display', serif;  font-size: clamp(38px, 5.5vw, 64px);  font-weight: 900;  line-height: 0.95;  color: var(--ink);  margin-bottom: 10px;  letter-spacing: -0.02em;}
+        .hero-ticker {  font-family: 'DM Mono', monospace;  font-size: 11px;  color: var(--ink-ghost);  letter-spacing: 0.13em;  margin-bottom: 28px;}
+        .hero-deck {  font-family: 'Playfair Display', serif;  font-size: clamp(14px, 1.7vw, 17px);  font-weight: 400;  font-style: italic;  color: var(--ink-faded);  line-height: 1.6;  max-width: 640px;  border-left: 2px solid var(--border);  padding-left: 18px;}
 
-        .sidebar { 
-            width: var(--sidebar-width); 
-            height: 100vh; 
-            position: fixed; 
-            left: 0; 
-            top: 0; 
-            background: #ffffff; 
-            border-right: 1px solid #edf2f7; 
-            overflow-y: auto; 
-            z-index: 50;
-        }
+        /* === STATS ROW === */
+        .stats-row {  display: grid;  grid-template-columns: repeat(6, 1fr);  gap: 1px;  background: var(--border-light);  border: 1px solid var(--border-light);  margin-bottom: 56px;}
+        .stat {  background: var(--parchment);  padding: 16px 14px;}
+        .stat-label {  font-family: 'DM Mono', monospace;  font-size: 7.5px;  letter-spacing: 0.1em;  text-transform: uppercase;  color: var(--ink-ghost);  margin-bottom: 6px;}
+        .stat-val {  font-family: 'Playfair Display', serif;  font-size: 19px;  font-weight: 700;  line-height: 1;  margin-bottom: 3px;}
+        .stat-val.gold { color: var(--gold); }
+        .stat-val.blue { color: var(--caplin); }
+        .stat-sub {  font-family: 'DM Mono', monospace;  font-size: 8.5px;  color: var(--ink-ghost);}
 
-        .main-content { 
-            margin-left: var(--sidebar-width); 
-            padding: 4rem; 
-            max-width: 1000px; 
-        }
+        /* === THESIS BAND === */
+        .thesis-band {  background: var(--ink);  padding: 24px 28px;  margin-bottom: 64px;}
+        .thesis-label {  font-family: 'DM Mono', monospace;  font-size: 9px;  letter-spacing: 0.16em;  text-transform: uppercase;  color: var(--gold);  margin-bottom: 10px;}
+        .thesis-text {  font-family: 'Playfair Display', serif;  font-size: clamp(14px, 1.6vw, 17px);  font-weight: 400;  font-style: italic;  color: rgba(245,240,232,0.82);  line-height: 1.6;}
 
-        .nav-link { 
-            display: flex; 
-            align-items: center; 
-            padding: 0.6rem 1rem; 
-            color: #64748b; 
-            border-radius: 6px; 
-            margin-bottom: 4px; 
-            transition: all 0.2s ease; 
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
+        /* === SECTION HEADER === */
+        .section-rule {  display: flex;  align-items: baseline;  gap: 12px;  margin-bottom: 28px;  padding-bottom: 10px;  border-bottom: 1px solid var(--border);}
+        .s-label {  font-family: 'DM Mono', monospace;  font-size: 10px;  color: var(--caplin);  letter-spacing: 0.08em;}
+        .s-title {  font-family: 'Playfair Display', serif;  font-size: 20px;  font-weight: 700;}
+        .s-aside {  font-family: 'DM Mono', monospace;  font-size: 9px;  color: var(--ink-ghost);  margin-left: auto;}
 
-        .nav-link:hover { background: #f8fafc; color: var(--accent-color); }
-        .nav-link.active { background: #eef2ff; color: var(--accent-color); font-weight: 600; }
+        /* === REPORTS LIST === */
+        .reports-list {  margin-bottom: 64px;}
+        .report-entry {  display: grid;  grid-template-columns: 44px 1fr auto;  gap: 0 20px;  align-items: baseline;  padding: 20px 12px;  margin-left: -12px;  margin-right: -12px;  border-bottom: 1px solid var(--border-light);  text-decoration: none;  color: var(--ink);  transition: background 0.15s;}
+        .report-entry:first-child {  border-top: 1px solid var(--border-light);}
+        .report-entry:hover {  background: var(--caplin-soft);}
+        .re-num {  font-family: 'DM Mono', monospace;  font-size: 12px;  color: var(--ink-ghost);}
+        .re-content {  display: flex;  flex-direction: column;  gap: 4px;}
+        .re-title {  font-family: 'Playfair Display', serif;  font-size: 16.5px;  font-weight: 700;  line-height: 1.25;}
+        .re-desc {  font-size: 13px;  font-weight: 300;  color: var(--ink-faded);  line-height: 1.55;}
+        .re-tag {  font-family: 'DM Mono', monospace;  font-size: 8px;  letter-spacing: 0.1em;  text-transform: uppercase;  color: var(--ink-ghost);  padding: 3px 8px;  border: 1px solid var(--border-light);  align-self: center;  white-space: nowrap;}
+        .re-tag.special {  color: var(--gold);  border-color: rgba(200,134,10,0.25);  background: var(--gold-soft);}
+        .re-tag.live {  color: var(--green);  border-color: rgba(42,92,42,0.2);  background: rgba(42,92,42,0.06);}
 
-        .card { 
-            background: white; 
-            border-radius: 1px; /* Sharper edges like technical reports */
-            border: 1px solid #e2e8f0; 
-            padding: 2.5rem; 
-            margin-bottom: 2.5rem; 
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); 
-        }
+        /* === METHODOLOGY NOTE === */
+        .method-note {  border-top: 1px solid var(--border);  padding-top: 28px;  margin-bottom: 64px;}
+        .method-label {  font-family: 'DM Mono', monospace;  font-size: 9px;  letter-spacing: 0.14em;  text-transform: uppercase;  color: var(--ink-ghost);  margin-bottom: 10px;}
+        .method-text {  font-size: 14px;  font-weight: 300;  color: var(--ink-faded);  line-height: 1.7;  max-width: 620px;}
 
-        .metric-box {
-            border-left: 4px solid var(--accent-color);
-            background: #f8fafc;
-            padding: 1.5rem;
-            margin: 1.5rem 0;
-        }
+        /* === FOOTER === */
+        .footer {  border-top: 2px solid var(--ink);  padding-top: 16px;  display: flex;  justify-content: space-between;  align-items: baseline;}
+        .footer-left {  font-family: 'DM Mono', monospace;  font-size: 9px;  color: var(--ink-ghost);}
+        .footer-right {  font-family: 'DM Mono', monospace;  font-size: 9px;  color: var(--ink-ghost);  font-style: italic;}
 
-        .tag {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.7rem;
-            background: #1a202c;
-            color: white;
-            padding: 2px 8px;
-            text-transform: uppercase;
-        }
-
-        @media (max-width: 768px) {
-            .sidebar { display: none; }
-            .main-content { margin-left: 0; padding: 1.5rem; }
+        /* === RESPONSIVE === */
+        @media (max-width: 700px) {  
+            .page { padding: 36px 20px 60px; }  
+            .stats-row { grid-template-columns: repeat(3, 1fr); }  
+            .report-entry { grid-template-columns: 36px 1fr; }  
+            .re-tag { display: none; }  
+            .masthead { flex-direction: column; gap: 4px; }
         }
     </style>
 </head>
 <body>
 
-    <aside class="sidebar p-6">
-        <div class="mb-10">
-            <div class="flex items-center gap-2 mb-2">
-                <span class="tag">System CPA v1.0</span>
-            </div>
-            <h1 class="text-xl">Deep Dive</h1>
-        </div>
+<div class="page">
+  <div class="masthead">    
+      <span class="masthead-pub">CPA Research Frame</span>    
+      <span class="masthead-meta">SYS: PROPOSAL · V1.0 · 2026</span>  
+  </div>
 
-        <nav>
-            <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-3">Core Framework</div>
-            <a href="#summary" class="nav-link active"><i class="fas fa-layer-group w-5"></i> Summary</a>
-            <a href="#hypothesis" class="nav-link"><i class="fas fa-flask w-5"></i> Hypothesis</a>
-            
-            <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-3 mt-8">Technical Specs</div>
-            <a href="#methodology" class="nav-link"><i class="fas fa-microscope w-5"></i> Methodology</a>
-            <a href="#data" class="nav-link"><i class="fas fa-database w-5"></i> Data Sets</a>
-            
-            <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-3 mt-8">Projections</div>
-            <a href="#timeline" class="nav-link"><i class="fas fa-stream w-5"></i> Timeline</a>
-            <a href="#budget" class="nav-link"><i class="fas fa-chart-pie w-5"></i> Budget</a>
-        </nav>
-    </aside>
+  <div class="hero">    
+      <div class="hero-kicker">Scientific Deep Dive · Complete Methodology</div>    
+      <div class="hero-title">CPA Proposal</div>    
+      <div class="hero-ticker">VAR: A/B · CONFIDENCE: 95% · p-VALUE < 0.05</div>    
+      <div class="hero-deck">"A systematic framework for investigating bottleneck effects in target systems. This proposal outlines the transition from theoretical models to empirical validation."</div>  
+  </div>
 
-    <main class="main-content">
-        
-        <header class="mb-16">
-            <h1 class="text-6xl mb-6">CPA Research Proposal</h1>
-            <p class="text-lg text-gray-500 max-w-2xl">
-                A granular investigation into the structural variables of 
-                <span class="mono-text text-indigo-600 font-bold">[Insert Subject]</span> 
-                and its long-term scalability.
-            </p>
-        </header>
+  <div class="stats-row">    
+      <div class="stat">      
+          <div class="stat-label">Duration</div>      
+          <div class="stat-val gold">24 Mo</div>      
+          <div class="stat-sub">Phase I & II</div>    
+      </div>    
+      <div class="stat">      
+          <div class="stat-label">Dataset Size</div>      
+          <div class="stat-val">1.2M</div>      
+          <div class="stat-sub">Parameters</div>    
+      </div>    
+      <div class="stat">      
+          <div class="stat-label">Variance ($R^2$)</div>      
+          <div class="stat-val blue">0.89</div>      
+          <div class="stat-sub">Target Accuracy</div>    
+      </div>    
+      <div class="stat">      
+          <div class="stat-label">Variables</div>      
+          <div class="stat-val">5</div>      
+          <div class="stat-sub">Independent</div>    
+      </div>    
+      <div class="stat">      
+          <div class="stat-label">Funding Req.</div>      
+          <div class="stat-val gold">$45k</div>      
+          <div class="stat-sub">Capital Allocation</div>    
+      </div>    
+      <div class="stat">      
+          <div class="stat-label">Feasibility</div>      
+          <div class="stat-val">High</div>      
+          <div class="stat-sub">Composite Score</div>    
+      </div>  
+  </div>
 
-        <section id="summary" class="card">
-            <h2 class="text-3xl mb-6 border-b pb-2">The Thesis</h2>
-            <div class="metric-box">
-                <p class="italic text-gray-700">
-                    "This research aims to identify the specific alpha-generating components within the target ecosystem..."
-                </p>
-            </div>
-            <p class="text-gray-600 mt-4">
-                [Insert your content here. Use the <strong>Inter</strong> font for readability and 
-                <span class="mono-text">JetBrains Mono</span> for specific data points.]
-            </p>
-        </section>
+  <div class="thesis-band">    
+      <div class="thesis-label">Core Hypothesis ($H_1$)</div>    
+      <div class="thesis-text">
+          The system exhibits nonlinear compounding when subjected to specific stress factors. The objective is to isolate variable $X$ and measure the catalytic impact on the standard output rate.
+      </div>  
+  </div>
 
-        <section id="hypothesis" class="card">
-            <h2 class="text-3xl mb-6">Scientific Rationale</h2>
-            <div class="bg-gray-50 p-8 rounded border border-gray-100 mb-8">
-                <p class="mb-4 text-xs font-bold text-gray-400 uppercase tracking-tighter">Model Formula</p>
-                <div class="text-2xl overflow-x-auto">
-                    $$ \sigma = \sqrt{\frac{1}{N} \sum_{i=1}^{N} (x_i - \mu)^2} $$
-                </div>
-            </div>
-            <p class="text-gray-600">
-                The objective is to minimize the variance ($\sigma$) while maximizing the output relative to $N$.
-            </p>
-        </section>
+  <div class="section-rule">    
+      <span class="s-label">—</span>    
+      <span class="s-title">Proposal Architecture</span>    
+      <span class="s-aside">5 Sections · Live Draft</span>  
+  </div>
 
-        <section id="timeline" class="card">
-            <h2 class="text-3xl mb-6">Execution Path</h2>
-            <div class="overflow-x-auto">
-                <table class="w-full text-sm">
-                    <thead>
-                        <tr class="text-left border-b-2 border-gray-900">
-                            <th class="py-3 font-extrabold uppercase tracking-tighter">Phase</th>
-                            <th class="py-3 font-extrabold uppercase tracking-tighter">Milestone</th>
-                            <th class="py-3 font-extrabold uppercase tracking-tighter text-right">Probability</th>
-                        </tr>
-                    </thead>
-                    <tbody class="mono-text">
-                        <tr class="border-b border-gray-100">
-                            <td class="py-4">01. COLLECTION</td>
-                            <td class="py-4">Primary Data Scrape</td>
-                            <td class="py-4 text-right text-green-600">95%</td>
-                        </tr>
-                        <tr class="border-b border-gray-100">
-                            <td class="py-4">02. ANALYSIS</td>
-                            <td class="py-4">Regression Modeling</td>
-                            <td class="py-4 text-right text-yellow-600">72%</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
+  <div class="reports-list">
+    <a href="#" class="report-entry">      
+        <span class="re-num">01</span>      
+        <div class="re-content">        
+            <span class="re-title">Abstract & Executive Summary</span>        
+            <span class="re-desc">The high-level overview of the anomaly being investigated, the primary literature gap, and the expected outcomes of the study.</span>      
+        </div>      
+        <span class="re-tag">Foundation</span>    
+    </a>
+    
+    <a href="#" class="report-entry">      
+        <span class="re-num">02</span>      
+        <div class="re-content">        
+            <span class="re-title">Literature Review & Existing Models</span>        
+            <span class="re-desc">Forensic analysis of previous attempts to solve the bottleneck. Where standard methodologies failed and why a new approach is required.</span>      
+        </div>      
+        <span class="re-tag">Context</span>    
+    </a>
 
-        <footer class="mt-20 py-10 border-t border-gray-100">
-            <p class="mono-text text-[10px] text-gray-400">FILE_NAME: CPA_PROPOSAL_FINAL.SYS</p>
-        </footer>
+    <a href="#" class="report-entry">      
+        <span class="re-num">03</span>      
+        <div class="re-content">        
+            <span class="re-title">Proposed Methodology</span>        
+            <span class="re-desc">Step-by-step execution path. Includes mathematical modeling, primary data scraping techniques, and stress-testing parameters.</span>      
+        </div>      
+        <span class="re-tag special">Core Model</span>    
+    </a>
 
-    </main>
+    <a href="#" class="report-entry">      
+        <span class="re-num">04</span>      
+        <div class="re-content">        
+            <span class="re-title">Risk Assessment & Limitations</span>        
+            <span class="re-desc">A forensic threat assessment of the experimental design. What happens if the data is skewed, and how we mitigate false positives.</span>      
+        </div>      
+        <span class="re-tag">Risk</span>    
+    </a>
 
-    <script>
-        // Smooth Scrolling and Sidebar Highlighting
-        const links = document.querySelectorAll('.nav-link');
-        links.forEach(link => {
-            link.addEventListener('click', () => {
-                links.forEach(l => l.classList.remove('active'));
-                link.classList.add('active');
-            });
-        });
-    </script>
+    <a href="#" class="report-entry">      
+        <span class="re-num">05</span>      
+        <div class="re-content">        
+            <span class="re-title">Budget & Timeline</span>        
+            <span class="re-desc">Granular breakdown of capital allocation across Phase I and Phase II, mapped against specific monthly milestones.</span>      
+        </div>      
+        <span class="re-tag live">Logistics</span>    
+    </a>
+  </div>
+
+  <div class="method-note">    
+      <div class="method-label">Framework Note</div>    
+      <div class="method-text">This proposal applies a rigorous scientific framework to evaluate structural constraints. Every phase is designed to test whether the variables can be isolated, replicated, and scaled mathematically.</div>  
+  </div>
+
+  <div class="footer">    
+      <span class="footer-left">Generated 2026 · Confidential Draft</span>    
+      <span class="footer-right">Prepared for Scientific Review.</span>  
+  </div>
+
+</div>
 </body>
 </html>
