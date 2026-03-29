@@ -4,122 +4,205 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CPA - Scientific Research Proposal</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
     <style>
-        :root { --sidebar-width: 280px; }
-        body { font-family: 'Inter', -apple-system, sans-serif; background: #f9fafb; color: #111827; }
-        .sidebar { width: var(--sidebar-width); height: 100vh; position: fixed; left: 0; top: 0; background: #fff; border-right: 1px solid #e5e7eb; overflow-y: auto; }
-        .main-content { margin-left: var(--sidebar-width); padding: 3rem; max-width: 900px; }
-        .nav-link { display: flex; align-items: center; padding: 0.75rem 1rem; color: #4b5563; border-radius: 0.5rem; margin-bottom: 0.25rem; transition: 0.2s; text-decoration: none; }
-        .nav-link:hover { background: #f3f4f6; color: #111827; }
-        .nav-link.active { background: #eef2ff; color: #4f46e5; font-weight: 600; }
-        .card { background: white; border-radius: 12px; border: 1px solid #e5e7eb; padding: 2rem; margin-bottom: 2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
-        .abstract-box { background: #f8fafc; border-left: 4px solid #4f46e5; padding: 1.5rem; font-style: italic; color: #334155; }
-        code { background: #f1f5f9; padding: 0.2rem 0.4rem; border-radius: 4px; font-family: monospace; }
-        .badge { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; background: #e0e7ff; color: #4338ca; }
+        :root { 
+            --sidebar-width: 280px; 
+            --accent-color: #4f46e5;
+        }
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: #fdfdfd; 
+            color: #1a202c;
+            line-height: 1.6;
+        }
+
+        /* High-Contrast Headers like Caplin Deep Dive */
+        h1, h2, h3 { 
+            font-family: 'Inter', sans-serif; 
+            font-weight: 800; 
+            letter-spacing: -0.025em;
+        }
+
+        /* Monospace for Data & Metrics */
+        .mono-text, code, .data-cell {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 500;
+        }
+
+        .sidebar { 
+            width: var(--sidebar-width); 
+            height: 100vh; 
+            position: fixed; 
+            left: 0; 
+            top: 0; 
+            background: #ffffff; 
+            border-right: 1px solid #edf2f7; 
+            overflow-y: auto; 
+            z-index: 50;
+        }
+
+        .main-content { 
+            margin-left: var(--sidebar-width); 
+            padding: 4rem; 
+            max-width: 1000px; 
+        }
+
+        .nav-link { 
+            display: flex; 
+            align-items: center; 
+            padding: 0.6rem 1rem; 
+            color: #64748b; 
+            border-radius: 6px; 
+            margin-bottom: 4px; 
+            transition: all 0.2s ease; 
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .nav-link:hover { background: #f8fafc; color: var(--accent-color); }
+        .nav-link.active { background: #eef2ff; color: var(--accent-color); font-weight: 600; }
+
+        .card { 
+            background: white; 
+            border-radius: 1px; /* Sharper edges like technical reports */
+            border: 1px solid #e2e8f0; 
+            padding: 2.5rem; 
+            margin-bottom: 2.5rem; 
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); 
+        }
+
+        .metric-box {
+            border-left: 4px solid var(--accent-color);
+            background: #f8fafc;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            background: #1a202c;
+            color: white;
+            padding: 2px 8px;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar { display: none; }
+            .main-content { margin-left: 0; padding: 1.5rem; }
+        }
     </style>
 </head>
 <body>
 
-    <div class="sidebar p-4">
-        <div class="flex items-center gap-2 px-2 mb-8 mt-2">
-            <div class="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center text-white">
-                <i class="fas fa-microscope"></i>
+    <aside class="sidebar p-6">
+        <div class="mb-10">
+            <div class="flex items-center gap-2 mb-2">
+                <span class="tag">System CPA v1.0</span>
             </div>
-            <h1 class="font-bold text-xl tracking-tight">CPA Proposal</h1>
+            <h1 class="text-xl">Deep Dive</h1>
         </div>
 
         <nav>
-            <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider px-2 mb-2">Project Overview</p>
-            <a href="#summary" class="nav-link active"><i class="fas fa-file-alt w-6"></i> Executive Summary</a>
-            <a href="#hypothesis" class="nav-link"><i class="fas fa-lightbulb w-6"></i> Hypothesis & Scope</a>
+            <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-3">Core Framework</div>
+            <a href="#summary" class="nav-link active"><i class="fas fa-layer-group w-5"></i> Summary</a>
+            <a href="#hypothesis" class="nav-link"><i class="fas fa-flask w-5"></i> Hypothesis</a>
             
-            <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider px-2 mb-2 mt-6">Core Methodology</p>
-            <a href="#framework" class="nav-link"><i class="fas fa-project-diagram w-6"></i> Theoretical Framework</a>
-            <a href="#data" class="nav-link"><i class="fas fa-chart-line w-6"></i> Data Collection</a>
+            <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-3 mt-8">Technical Specs</div>
+            <a href="#methodology" class="nav-link"><i class="fas fa-microscope w-5"></i> Methodology</a>
+            <a href="#data" class="nav-link"><i class="fas fa-database w-5"></i> Data Sets</a>
             
-            <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider px-2 mb-2 mt-6">Execution</p>
-            <a href="#timeline" class="nav-link"><i class="fas fa-calendar-alt w-6"></i> Project Timeline</a>
-            <a href="#budget" class="nav-link"><i class="fas fa-coins w-6"></i> Capital Allocation</a>
-            <a href="#risk" class="nav-link"><i class="fas fa-exclamation-triangle w-6"></i> Risk Register</a>
+            <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-3 mt-8">Projections</div>
+            <a href="#timeline" class="nav-link"><i class="fas fa-stream w-5"></i> Timeline</a>
+            <a href="#budget" class="nav-link"><i class="fas fa-chart-pie w-5"></i> Budget</a>
         </nav>
-    </div>
+    </aside>
 
     <main class="main-content">
         
-        <header class="mb-12">
-            <span class="badge mb-4">CONFIDENTIAL RESEARCH PAPER</span>
-            <h1 class="text-5xl font-extrabold text-gray-900 mb-4 tracking-tight">CPA: Deep Dive Research Proposal</h1>
-            <p class="text-xl text-gray-500">A systematic framework for investigating the bottleneck effects in <i>[Insert Subject Here]</i>.</p>
+        <header class="mb-16">
+            <h1 class="text-6xl mb-6">CPA Research Proposal</h1>
+            <p class="text-lg text-gray-500 max-w-2xl">
+                A granular investigation into the structural variables of 
+                <span class="mono-text text-indigo-600 font-bold">[Insert Subject]</span> 
+                and its long-term scalability.
+            </p>
         </header>
 
         <section id="summary" class="card">
-            <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">
-                <i class="fas fa-book-open text-indigo-500"></i> Executive Summary
-            </h2>
-            <div class="abstract-box mb-6">
-                "This section is designed to give the reviewer a top-down view of the entire thesis. It focuses on the primary 'Anomaly' being investigated and the expected outcome."
+            <h2 class="text-3xl mb-6 border-b pb-2">The Thesis</h2>
+            <div class="metric-box">
+                <p class="italic text-gray-700">
+                    "This research aims to identify the specific alpha-generating components within the target ecosystem..."
+                </p>
             </div>
-            <p class="text-gray-600 leading-relaxed">
-                [Placeholder: Describe the core intent of your research. Similar to the Caplin Deep Dive, focus on why this specific research matters and what the 'High-Alpha' insights are.]
+            <p class="text-gray-600 mt-4">
+                [Insert your content here. Use the <strong>Inter</strong> font for readability and 
+                <span class="mono-text">JetBrains Mono</span> for specific data points.]
             </p>
         </section>
 
         <section id="hypothesis" class="card">
-            <h2 class="text-2xl font-bold mb-6">Hypothesis & Mathematical Basis</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-                <div class="p-4 bg-indigo-50 rounded-lg border border-indigo-100">
-                    <h3 class="font-bold text-indigo-900 mb-2">Null Hypothesis ($H_0$)</h3>
-                    <p class="text-sm text-indigo-800">No significant correlation between Variable A and Variable B.</p>
-                </div>
-                <div class="p-4 bg-green-50 rounded-lg border border-green-100">
-                    <h3 class="font-bold text-green-900 mb-2">Alternative Hypothesis ($H_1$)</h3>
-                    <p class="text-sm text-green-800">There is a 33% CAGR impact on the outcome when Variable A is optimized.</p>
+            <h2 class="text-3xl mb-6">Scientific Rationale</h2>
+            <div class="bg-gray-50 p-8 rounded border border-gray-100 mb-8">
+                <p class="mb-4 text-xs font-bold text-gray-400 uppercase tracking-tighter">Model Formula</p>
+                <div class="text-2xl overflow-x-auto">
+                    $$ \sigma = \sqrt{\frac{1}{N} \sum_{i=1}^{N} (x_i - \mu)^2} $$
                 </div>
             </div>
-            
-            <p class="mb-4 text-gray-600 italic">Example formula for the research model:</p>
-            <div class="bg-gray-900 text-white p-6 rounded-lg text-center text-xl overflow-x-auto">
-                $$ E = mc^2 + \int_{0}^{\infty} \frac{x^n}{e^x-1} dx $$
-            </div>
+            <p class="text-gray-600">
+                The objective is to minimize the variance ($\sigma$) while maximizing the output relative to $N$.
+            </p>
         </section>
 
         <section id="timeline" class="card">
-            <h2 class="text-2xl font-bold mb-6">Projected Timeline</h2>
-            <table class="w-full text-left border-collapse">
-                <thead>
-                    <tr class="border-b-2 border-gray-100">
-                        <th class="py-3 px-4 text-gray-400 font-semibold uppercase text-xs">Phase</th>
-                        <th class="py-3 px-4 text-gray-400 font-semibold uppercase text-xs">Deliverable</th>
-                        <th class="py-3 px-4 text-gray-400 font-semibold uppercase text-xs">Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="border-b border-gray-50">
-                        <td class="py-4 px-4 font-medium">Phase 1</td>
-                        <td class="py-4 px-4 text-gray-600">Initial Data Mining & Literature Review</td>
-                        <td class="py-4 px-4"><span class="px-2 py-1 bg-green-100 text-green-700 text-xs rounded">Completed</span></td>
-                    </tr>
-                    <tr class="border-b border-gray-50">
-                        <td class="py-4 px-4 font-medium">Phase 2</td>
-                        <td class="py-4 px-4 text-gray-600">Framework Validation & Stress Testing</td>
-                        <td class="py-4 px-4"><span class="px-2 py-1 bg-yellow-100 text-yellow-700 text-xs rounded">In Progress</span></td>
-                    </tr>
-                </tbody>
-            </table>
+            <h2 class="text-3xl mb-6">Execution Path</h2>
+            <div class="overflow-x-auto">
+                <table class="w-full text-sm">
+                    <thead>
+                        <tr class="text-left border-b-2 border-gray-900">
+                            <th class="py-3 font-extrabold uppercase tracking-tighter">Phase</th>
+                            <th class="py-3 font-extrabold uppercase tracking-tighter">Milestone</th>
+                            <th class="py-3 font-extrabold uppercase tracking-tighter text-right">Probability</th>
+                        </tr>
+                    </thead>
+                    <tbody class="mono-text">
+                        <tr class="border-b border-gray-100">
+                            <td class="py-4">01. COLLECTION</td>
+                            <td class="py-4">Primary Data Scrape</td>
+                            <td class="py-4 text-right text-green-600">95%</td>
+                        </tr>
+                        <tr class="border-b border-gray-100">
+                            <td class="py-4">02. ANALYSIS</td>
+                            <td class="py-4">Regression Modeling</td>
+                            <td class="py-4 text-right text-yellow-600">72%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </section>
 
-        <footer class="mt-20 pt-8 border-t border-gray-200 text-center text-gray-400 text-sm">
-            <p>© 2025 CPA Research Proposal. Generated for Scientific Deep Dive Analysis.</p>
+        <footer class="mt-20 py-10 border-t border-gray-100">
+            <p class="mono-text text-[10px] text-gray-400">FILE_NAME: CPA_PROPOSAL_FINAL.SYS</p>
         </footer>
 
     </main>
 
     <script>
-        // Simple active link switcher
+        // Smooth Scrolling and Sidebar Highlighting
         const links = document.querySelectorAll('.nav-link');
         links.forEach(link => {
             link.addEventListener('click', () => {
